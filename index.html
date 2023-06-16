@@ -27,9 +27,9 @@
         </a>
       </section>
 
-      <section id="list-porto" v-scope>
-        <ul>
-          <li v-for="anak in daftar">
+      <section class="list-porto-wrapper" v-scope>
+        <ul class="list-porto">
+          <li v-for="anak in daftar" class="anak" :class="{sudah: anak.sudah}">
             <a :href="`portfolio/${anak.link}`">{{anak.nama}}</a>
           </li>
         </ul>
@@ -50,155 +50,192 @@
           {
             nama: "Abimanyu Suryo Sutanto",
             link: "#",
+            sudah: false,
           },
           {
             nama: "Abiyyu Sadid Anshori",
             link: "#",
+            sudah: false,
           },
           {
             nama: "Abraham Haholongan Bernadi",
             link: "#",
+            sudah: false,
           },
           {
             nama: "Adam Lesra Troy Lantu",
             link: "adamm",
+            sudah: true,
           },
           {
             nama: "Aira Anaya Hanif",
             link: "#",
+            sudah: false,
           },
           {
             nama: "Alfatah Radya Tirtana",
             link: "alfatahradya",
+            sudah: true,
           },
           {
             nama: "Allam Syahfril Ginar Azandra",
             link: "chnp",
+            sudah: true,
           },
           {
             nama: "Amanda Aprilia Citra",
             link: "#",
+            sudah: false,
           },
           {
             nama: "Andi Johan Saputra",
             link: "andijohan",
+            sudah: true,
           },
           {
             nama: "Anisa Rahmayani Ayuningrum",
             link: "kecikk",
+            sudah: true,
           },
           {
             nama: "Anna Calista Evangelin",
             link: "el",
+            sudah: true,
           },
           {
             nama: "Bagus Raziq Safaras",
             link: "bagusraziq",
+            sudah: true,
           },
           {
             nama: "Benjamin Dharma Guntara",
             link: "00",
+            sudah: true,
           },
           {
             nama: "Daffa Al Fatih",
             link: "FatihXPPLG",
+            sudah: true,
           },
           {
             nama: "Devano Kefanya Reihand Alvaro",
             link: "depaa",
+            sudah: true,
           },
           {
             nama: "Efraim Wibowo Munthe",
             link: "klrfl",
+            sudah: true,
           },
           {
             nama: "Emmanuel Steve Michael Limbeng",
             link: "#",
+            sudah: false,
           },
           {
             nama: "Ezekiel Benedict Felice",
             link: "#",
+            sudah: false,
           },
           {
             nama: "Ezra Imang Lama Rebon",
             link: "#",
+            sudah: false,
           },
           {
             nama: "Hikaru Pradyananto Ramadan",
             link: "#",
+            sudah: false,
           },
           {
             nama: "Jose Antonio Tjua",
             link: "#",
+            sudah: false,
           },
           {
             nama: "Maprio Filindo",
             link: "#",
+            sudah: false,
           },
           {
             nama: "Mario Jons",
             link: "#",
+            sudah: false,
           },
           {
             nama: "Giga Felicia Ananta",
             link: "GigaFeliciaAnanta",
+            sudah: true,
           },
           {
             nama: "Mohammad Atha Fattarsyah Noor",
             link: "Hamba",
+            sudah: true,
           },
           {
             nama: "Muhamad Fadil Maulama",
             link: "#",
+            sudah: false,
           },
           {
             nama: "Muhamad Rava Basya",
             link: "#",
+            sudah: true,
           },
           {
             nama: "Muhammad Rifqi Fallah Gaffar",
             link: "#",
+            sudah: false,
           },
           {
             nama: "Muhamad Rizal Fasha Ramadan",
             link: "#",
+            sudah: false,
           },
           {
             nama: "Muhammad Brillian Tama Wandiko",
             link: "BYNTM_07",
+            sudah: true,
           },
           {
             nama: "Muhammad Rafi Al Zakwan",
             link: "#",
+            sudah: false,
           },
           {
             nama: "Muhammad Raihan Althaf",
             link: "#",
+            sudah: false,
           },
           {
             nama: "Raihan Januariza Sulistyo",
             link: "#",
+            sudah: false,
           },
           {
             nama: "Rowley Fisstrong Junior",
             link: "#",
+            sudah: false,
           },
           {
             nama: "Ryan Dimas Adrian",
             link: "#",
+            sudah: false,
           },
           {
             nama: "Satria Trisula Witjaksana",
             link: "#",
+            sudah: false,
           },
           {
             nama: "Sachio Ramzie Ramdan",
             link: "#",
+            sudah: false,
           },
-
           {
             nama: "Vianne Clarinta Putri",
             link: "#",
+            sudah: false,
           },
         ],
       }).mount();
