@@ -32,17 +32,52 @@
           Maaf yah, kami pake JavaScript di sini, jadi kamu harus nyalain
           JavaScript.
         </noscript>
+
         <p>
           Ada {{daftar.length}} anak di kelas X PPLG, tapi yang punya portfolio
           baru {{daftar.filter(anak => anak.sudah).length}}.
         </p>
 
-        <ul class="list-porto">
-          <li v-for="anak in daftar" class="anak" :class="{sudah: anak.sudah}">
+        <div class="form-wrapper">
+          <p>Tampilkan anak yang udah mengerjakan atau belom mengerjakan:</p>
+          <form>
+            <select name="" id="" v-model="tampilkanAnak">
+              <option value="semua">Semua</option>
+              <option value="sudah">Sudah</option>
+              <option value="belom">Belom</option>
+            </select>
+          </form>
+        </div>
+
+        {{tampilkanAnak}}
+
+        <ul class="list-porto" v-show="tampilkanAnak === 'semua'">
+          <li
+            v-for="anak in semuaAnak"
+            class="anak"
+            :class="{sudah: anak.sudah}">
             <a v-if="anak.sudah" :href="`portfolio/${anak.link}`">
               {{anak.nama}}
             </a>
             <a v-else href="./belum.html">{{anak.nama}}</a>
+          </li>
+        </ul>
+
+        <ul class="list-porto daftar--udah" v-show="tampilkanAnak === 'sudah'">
+          <li
+            v-for="anak in anakSudah"
+            class="anak"
+            :class="{sudah: anak.sudah}">
+            <a :href="`portfolio/${anak.link}`"> {{anak.nama}} </a>
+          </li>
+        </ul>
+
+        <ul class="list-porto daftar--belom" v-show="tampilkanAnak === 'belom'">
+          <li
+            v-for="anak in anakBelom"
+            class="anak"
+            :class="{sudah: anak.sudah}">
+            <a :href="`portfolio/${anak.link}`"> {{anak.nama}} </a>
           </li>
         </ul>
       </section>
@@ -58,7 +93,8 @@
 
       createApp({
         // exposed to all expressions
-        daftar: [
+        tampilkanAnak: "semua",
+        semuaAnak: [
           {
             nama: "Abimanyu Suryo Sutanto",
             link: "#",
@@ -250,6 +286,14 @@
             sudah: false,
           },
         ],
+
+        get anakSudah() {
+          return this.semuaAnak.filter((anak) => anak.sudah);
+        },
+
+        get anakBelom() {
+          return this.semuaAnak.filter((anak) => anak.sudah === false);
+        },
       }).mount();
     </script>
   </body>
