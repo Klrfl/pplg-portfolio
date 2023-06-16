@@ -1,0 +1,3 @@
+Sebelum upload folder kalian, ganti file html kalian dari "~.html" jadi "index.html", karena kalau tidak, file html tidak bisa dibaca oleh situs web.
+
+Pastikan juga tidak menamakan folder dengan spasi, contoh "Rava X PPLG" ini tidak boleh karena tidak bisa dibaca oleh web. Ubah spasi menjadi _ contoh : "Rava_X_PPLG" 

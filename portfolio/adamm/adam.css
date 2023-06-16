@@ -1,0 +1,17 @@
+body{
+    text-align: center;
+    border: 5px solid rgb(0, 60, 255);
+    background-color: aqua;
+}
+
+div {
+    max-width: 50%;
+    margin:auto;
+    height: 100vh;
+   
+}
+
+img{
+    border: 5px solid rgb(0, 60, 255);
+}
+}
