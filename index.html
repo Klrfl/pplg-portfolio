@@ -35,7 +35,10 @@
 
         <ul class="list-porto">
           <li v-for="anak in daftar" class="anak" :class="{sudah: anak.sudah}">
-            <a :href="`portfolio/${anak.link}`">{{anak.nama}}</a>
+            <a v-if="anak.sudah" :href="`portfolio/${anak.link}`">
+              {{anak.nama}}
+            </a>
+            <a v-else href="./belum.html">{{anak.nama}}</a>
           </li>
         </ul>
       </section>
@@ -184,7 +187,7 @@
           },
           {
             nama: "Muhamad Rava Basya",
-            link: "#",
+            link: "ravabasya06",
             sudah: true,
           },
           {
