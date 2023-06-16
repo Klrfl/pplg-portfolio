@@ -1,9 +1,13 @@
-# pplg-porto-landing-page
+# pplg-portfolio
 
-Ini adalah repositori yang berisi landing page dari [porto.lupy.my.id](https://porto.lupy.my.id), dibuat hanya dengan HTML dan CSS.
+Ini adalah sebuah repositori yang berisi situs portfolio PPLG, yang merupakan kumpulan portfolio dari anak PPLG.
+
+Situs ini dibuat dengan HTML + CSS, dengan sedikit bantuan dari [petite-vue](https://github.com/vuejs/petite-vue).
 
 ## Kontributor
-Di buat oleh [Rava](https://github.com/ravabasya06) dan Efraim.
+
+Tampilan dan desain awal oleh [Rava](https://github.com/ravabasya06) dan [Efraim](https://github.com/klrfl).
 
 ## Berkontribusi
-Anda dapat berkontribusi dengan membuat fork dari repositori ini, dan membuat sebuah pull request. 
+
+Anda dapat berkontribusi dengan membuat sebuah fork dari repositori ini, lalu membuat sebuah pull request.
