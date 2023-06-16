@@ -28,6 +28,11 @@
       </header>
 
       <section class="list-porto-wrapper" v-scope>
+        <p>
+          Ada {{daftar.length}} anak di kelas X PPLG, tapi yang punya portfolio
+          baru {{daftar.filter(anak => anak.sudah).length}}.
+        </p>
+
         <ul class="list-porto">
           <li v-for="anak in daftar" class="anak" :class="{sudah: anak.sudah}">
             <a :href="`portfolio/${anak.link}`">{{anak.nama}}</a>
