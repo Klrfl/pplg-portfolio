@@ -34,22 +34,18 @@
         </noscript>
 
         <p>
-          Ada {{daftar.length}} anak di kelas X PPLG, tapi yang punya portfolio
-          baru {{daftar.filter(anak => anak.sudah).length}}.
+          Ada {{semuaAnak.length}} anak di kelas X PPLG, tapi yang punya
+          portfolio baru {{semuaAnak.filter(anak => anak.sudah).length}}.
         </p>
 
         <div class="form-wrapper">
           <p>Tampilkan anak yang udah mengerjakan atau belom mengerjakan:</p>
-          <form>
-            <select name="" id="" v-model="tampilkanAnak">
-              <option value="semua">Semua</option>
-              <option value="sudah">Sudah</option>
-              <option value="belom">Belom</option>
-            </select>
-          </form>
+          <select name="" id="" v-model="tampilkanAnak">
+            <option value="semua">Semua</option>
+            <option value="sudah">Sudah</option>
+            <option value="belom">Belom</option>
+          </select>
         </div>
-
-        {{tampilkanAnak}}
 
         <ul class="list-porto" v-show="tampilkanAnak === 'semua'">
           <li
