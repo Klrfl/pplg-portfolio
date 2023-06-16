@@ -13,7 +13,7 @@
 
   <body>
     <main>
-      <header class="info">
+      <header>
         <h1 class="title">X PPLG</h1>
         <p class="description">Ini website portofolio dari kelas X PPLG.</p>
         <a
@@ -33,14 +33,19 @@
           JavaScript.
         </noscript>
 
-        <p>
-          Ada {{semuaAnak.length}} anak di kelas X PPLG, tapi yang punya
-          portfolio baru {{semuaAnak.filter(anak => anak.sudah).length}}.
-        </p>
-
         <div class="form-wrapper">
-          <p>Tampilkan anak yang udah mengerjakan atau belom mengerjakan:</p>
-          <select name="" id="" v-model="tampilkanAnak">
+          <p>
+            Ada {{semuaAnak.length}} anak di kelas X PPLG, tapi yang punya
+            portfolio baru {{semuaAnak.filter(anak => anak.sudah).length}}.
+          </p>
+          <p>Tampilkan bocah yang udah mengerjakan atau belom mengerjakan:</p>
+          <select
+            name="sudah-apa-belom"
+            id="sudah-apa-belom"
+            v-model="tampilkanAnak">
+            <option disabled value="pilih salah satu">
+              Pilih salah satu ya
+            </option>
             <option value="semua">Semua</option>
             <option value="sudah">Sudah</option>
             <option value="belom">Belom</option>
