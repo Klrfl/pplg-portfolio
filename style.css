@@ -25,34 +25,35 @@ main {
   margin: auto;
 }
 
-#info {
+.info {
   max-width: 50%;
   margin: auto;
+  padding: 2rem;
 }
 
-#title {
-  text-align: center;
+.title,
+.description {
   text-shadow: 2px 2px 5px black;
+}
+
+.title {
+  text-align: center;
   font-size: 2rem;
-  margin: 25px;
 }
 
-#description {
+.description {
   text-align: center;
-  text-shadow: 2px 2px 5px black;
-  margin-bottom: 30px;
 }
 
-#foto-bareng {
+.foto-bareng {
   display: block;
   border-radius: 10px;
   max-width: 100%;
-  margin-bottom: 50px;
   box-shadow: 3px 3px 10px 5px black;
   transition: transform 0.2s;
 }
 
-#foto-bareng:hover {
+.foto-bareng:hover {
   transform: scale(1.05);
 }
 
@@ -97,7 +98,7 @@ main {
   height: 100%;
 }
 
-#list-porto a:hover {
+.list-porto a:hover {
   background: rgb(0, 0, 0, 0.5);
 }
 
