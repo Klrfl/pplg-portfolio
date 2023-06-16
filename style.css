@@ -56,20 +56,25 @@ main {
   transform: scale(1.05);
 }
 
-#list-porto {
+.list-porto-wrapper {
   padding: 2em;
 }
 
-#list-porto ul {
+.list-porto {
   list-style: none;
   padding: 0;
   margin: 0;
+
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
   gap: 1em;
 }
 
-#list-porto a {
+.anak {
+  position: relative;
+}
+
+.anak a {
   outline: 1px solid #aaa;
   background: rgb(0, 0, 0, 0.1);
   border-radius: 0.2em;
@@ -80,20 +85,16 @@ main {
   min-width: max-content;
   display: flex;
   justify-content: center;
-  /* flex-grow: 1; */
 }
 
-/*
-style the before pseudoelement of only the
-anchors not with href="#", that is the anchors
-with valid URLs
-*/
-#list-porto a:not(a[href="#"])::before {
+.anak.sudah::before {
   content: "";
   background: rgb(112, 229, 15);
   position: absolute;
   width: 0.5rem;
-  inset: 0;
+  top: 0;
+  left: 0;
+  height: 100%;
 }
 
 #list-porto a:hover {
