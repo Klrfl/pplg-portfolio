@@ -4,6 +4,7 @@
   font-family: "Open Sans", sans-serif;
   color: white;
 }
+
 body {
   margin: 0;
   padding: 0;
@@ -63,21 +64,15 @@ main {
   list-style: none;
   padding: 0;
   margin: 0;
-  /* display: flex;flex-wrap: wrap;justify-content: center;gap: 1.5em; */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
   gap: 1em;
 }
-/* 
-#list-porto li{
-    display: flex;
-    flex: 1 1 0;
-} */
+
 #list-porto a {
   outline: 1px solid #aaa;
   background: rgb(0, 0, 0, 0.1);
   border-radius: 0.2em;
-  /* box-shadow: 2px 2px 2px 1px black; */
   text-decoration: none;
   padding: 20px;
   transition: background-color 200ms ease;
