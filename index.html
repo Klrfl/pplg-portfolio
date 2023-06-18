@@ -85,6 +85,7 @@
         </ul>
 
         <ul class="list-porto daftar--dicari" v-show="tampilkanAnak === 'cari'">
+          <li v-show="anakYangDicari.length === 0">Gak ketemu :(</li>
           <li
             v-for="anak in anakYangDicari"
             class="anak"
