@@ -50,6 +50,8 @@
             <option value="sudah">Sudah</option>
             <option value="belom">Belom</option>
           </select>
+
+          <input type="search" placeholder="Cari anak" v-model="cariAnak" />
         </div>
 
         <ul class="list-porto" v-show="tampilkanAnak === 'semua'">
@@ -79,6 +81,18 @@
             class="anak"
             :class="{sudah: anak.sudah}">
             <a :href="`portfolio/${anak.link}`"> {{anak.nama}} </a>
+          </li>
+        </ul>
+
+        <ul class="list-porto daftar--dicari" v-show="tampilkanAnak === 'cari'">
+          <li
+            v-for="anak in anakYangDicari"
+            class="anak"
+            :class="{sudah: anak.sudah}">
+            <a v-if="anak.sudah" :href="`portfolio/${anak.link}`">
+              {{anak.nama}}
+            </a>
+            <a v-else href="./belum.html">{{anak.nama}}</a>
           </li>
         </ul>
       </section>
@@ -294,6 +308,18 @@
 
         get anakBelom() {
           return this.semuaAnak.filter((anak) => anak.sudah === false);
+        },
+
+        cariAnak: "",
+
+        get anakYangDicari() {
+          if (this.cariAnak === "") this.tampilkanAnak = "semua";
+          else this.tampilkanAnak = "cari";
+
+          const filtered = this.semuaAnak.filter((anak) =>
+            anak.nama.toLowerCase().includes(this.cariAnak.toLowerCase())
+          );
+          return filtered;
         },
       }).mount();
     </script>
