@@ -316,8 +316,7 @@
         cariAnak: "",
 
         get anakYangDicari() {
-          if (this.cariAnak === "") this.tampilkanAnak = "semua";
-          else this.tampilkanAnak = "cari";
+          if (this.cariAnak !== "") this.tampilkanAnak = "cari";
 
           const filtered = this.semuaAnak.filter((anak) =>
             anak.nama.toLowerCase().includes(this.cariAnak.toLowerCase())
