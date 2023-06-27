@@ -1,5 +1,5 @@
 # pplg-portfolio
-
+[![Netlify Status](https://api.netlify.com/api/v1/badges/752222d8-3c28-4568-bd6d-93c7bc2cc58e/deploy-status)](https://app.netlify.com/sites/pplgportfolio/deploys)
 Ini adalah sebuah repositori yang berisi situs portfolio PPLG, yang merupakan kumpulan portfolio dari anak PPLG.
 
 Situs ini dibuat dengan HTML + CSS, dengan sedikit bantuan dari [petite-vue](https://github.com/vuejs/petite-vue).
