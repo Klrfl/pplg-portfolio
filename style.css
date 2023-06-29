@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -98,9 +104,8 @@ header {
   padding: 20px;
   transition: background-color 200ms ease;
   position: relative;
-  min-width: max-content;
-  display: flex;
-  justify-content: center;
+  width: 100%;
+  display: inline-block;
 }
 
 .anak.sudah::before {
@@ -111,6 +116,7 @@ header {
   top: 0;
   left: 0;
   height: 100%;
+  z-index: 1;
 }
 
 .list-porto a:hover {
@@ -121,10 +127,6 @@ footer {
   background: linear-gradient(to bottom, rgb(0, 0, 0, 0), rgb(0, 0, 0));
   padding: 3rem;
   text-align: center;
-  text-decoration: none;
-}
-
-footer a {
   text-decoration: none;
 }
 
