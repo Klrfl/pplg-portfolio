@@ -54,16 +54,28 @@ header {
   text-align: center;
 }
 
+.container-foto-bareng {
+  border-style: solid;
+  border-radius: 15px;
+  background: linear-gradient(
+    to right top,
+    #a8eb12,
+    #00bf72,
+    #008793,
+    #004d7a,
+    #051937
+  );
+  padding: 20px;
+}
 .foto-bareng {
   display: block;
-  border-radius: 10px;
+  border-radius: 5px;
   max-width: 100%;
-  box-shadow: 3px 3px 10px 5px black;
   transition: transform 0.2s;
 }
 
 .foto-bareng:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .form-wrapper {
