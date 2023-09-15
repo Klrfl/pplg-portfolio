@@ -1,307 +1,333 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Kumpulan portofolio X PPLG tahun ajaran 2022/2023." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./assets/icon.png" height="200px" width="200px" />
+    <title>Portofolio | X PPLG</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="description" content="Kumpulan portofolio X PPLG tahun ajaran 2022/2023." />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="./assets/icon.png" height="200px" width="200px" />
-  <title>Portofolio | X PPLG</title>
+    <!-- css link -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-  <!-- css link -->
-  <link rel="stylesheet" href="style.css" />
-</head>
-
-<body>
-  <main>
-    <header>
-      <h1 class="title">X PPLG</h1>
-      <p class="description">Ini website portofolio dari kelas X PPLG.</p>
-      <a class="link-foto-bareng" href="https://www.instagram.com/aduwin.pplg/" target="_blank">
-        <img class="foto-bareng" src="/assets/foto-bareng.webp" alt="Anak 10 PPLG pas MPLS" width="960" />
-      </a>
-    </header>
-
-    <section class="list-porto-wrapper" v-scope>
-      <noscript>
-        Maaf yah, kami pake JavaScript di sini, jadi kamu harus nyalain
-        JavaScript.
-      </noscript>
-
-      <div class="form-wrapper">
-        <p>
-          Ada {{semuaAnak.length}} anak di kelas X PPLG, tapi yang punya
-          portfolio baru {{semuaAnak.filter(anak => anak.sudah).length}}.
+  <body>
+    <main>
+      <header>
+        <h1 class="title">PPLG Angkatan 9</h1>
+        <p class="description">
+          Ini website portofolio dari kelas PPLG Angkatan ke 9.
         </p>
-        <p>Tampilkan bocah yang udah mengerjakan atau belom mengerjakan:</p>
-        <select name="sudah-apa-belom" id="sudah-apa-belom" v-model="tampilkanAnak">
-          <option disabled value="pilih salah satu">
-            Pilih salah satu ya
-          </option>
-          <option value="semua">Semua</option>
-          <option value="sudah">Sudah</option>
-          <option value="belom">Belom</option>
-        </select>
+        <div class="container-foto-bareng">
+          <a
+            class="link-foto-bareng"
+            href="https://www.instagram.com/aduwin.pplg/"
+            target="_blank">
+            <img
+              class="foto-bareng"
+              src="/assets/foto-bareng.webp"
+              alt="Anak 10 PPLG pas MPLS"
+              width="960" />
+          </a>
+        </div>
+      </header>
 
-        <input type="search" placeholder="Cari anak" v-model="cariAnak" />
-      </div>
+      <section class="list-porto-wrapper" v-scope>
+        <noscript>
+          Maaf yah, kami pake JavaScript di sini, jadi kamu harus nyalain
+          JavaScript.
+        </noscript>
 
-      <ul class="list-porto" v-show="tampilkanAnak === 'semua'">
-        <li v-for="anak in semuaAnak" class="anak" :class="{sudah: anak.sudah}">
-          <a v-if="anak.sudah" :href="`${anak.link}`"> {{anak.nama}} </a>
-          <a v-else href="./belum.html">{{anak.nama}}</a>
-        </li>
-      </ul>
+        <div class="form-wrapper">
+          <p>
+            Ada {{semuaAnak.length}} anak di kelas X PPLG, tapi yang punya
+            portfolio baru {{semuaAnak.filter(anak => anak.sudah).length}}.
+          </p>
+          <p>Tampilkan bocah yang udah mengerjakan atau belom mengerjakan:</p>
+          <select
+            name="sudah-apa-belom"
+            id="sudah-apa-belom"
+            v-model="tampilkanAnak">
+            <option disabled value="pilih salah satu">
+              Pilih salah satu ya
+            </option>
+            <option value="semua">Semua</option>
+            <option value="sudah">Sudah</option>
+            <option value="belom">Belom</option>
+          </select>
 
-      <ul class="list-porto daftar--udah" v-show="tampilkanAnak === 'sudah'">
-        <li v-for="anak in anakSudah" class="anak" :class="{sudah: anak.sudah}">
-          <a :href="`${anak.link}`"> {{anak.nama}} </a>
-        </li>
-      </ul>
+          <input type="search" placeholder="Cari anak" v-model="cariAnak" />
+        </div>
 
-      <ul class="list-porto daftar--belom" v-show="tampilkanAnak === 'belom'">
-        <li v-for="anak in anakBelom" class="anak" :class="{sudah: anak.sudah}">
-          <a :href="`${anak.link}`"> {{anak.nama}} </a>
-        </li>
-      </ul>
+        <ul class="list-porto" v-show="tampilkanAnak === 'semua'">
+          <li
+            v-for="anak in semuaAnak"
+            class="anak"
+            :class="{sudah: anak.sudah}">
+            <a v-if="anak.sudah" :href="`${anak.link}`"> {{anak.nama}} </a>
+            <a v-else href="./belum.html">{{anak.nama}}</a>
+          </li>
+        </ul>
 
-      <ul class="list-porto daftar--dicari" v-show="tampilkanAnak === 'cari'">
-        <li v-show="anakYangDicari.length === 0">Gak ketemu :(</li>
-        <li v-for="anak in anakYangDicari" class="anak" :class="{sudah: anak.sudah}">
-          <a v-if="anak.sudah" :href="`${anak.link}`"> {{anak.nama}} </a>
-          <a v-else href="./belum.html">{{anak.nama}}</a>
-        </li>
-      </ul>
-    </section>
-  </main>
+        <ul class="list-porto daftar--udah" v-show="tampilkanAnak === 'sudah'">
+          <li
+            v-for="anak in anakSudah"
+            class="anak"
+            :class="{sudah: anak.sudah}">
+            <a :href="`${anak.link}`"> {{anak.nama}} </a>
+          </li>
+        </ul>
 
-  <footer>
-    © <a href="https://github.com/ravabasya06" target="_blank">rav.</a> &
-    <a href="https://github.com/klrfl" target="_blank">Klrfl</a>, 2023. Lihat
-    <a href="https://github.com/klrfl/pplg-portfolio">
-      kode sumber website ini
-    </a>
-  </footer>
+        <ul class="list-porto daftar--belom" v-show="tampilkanAnak === 'belom'">
+          <li
+            v-for="anak in anakBelom"
+            class="anak"
+            :class="{sudah: anak.sudah}">
+            <a :href="`${anak.link}`"> {{anak.nama}} </a>
+          </li>
+        </ul>
 
-  <script type="module">
-    import {createApp} from "https://unpkg.com/petite-vue@0.2.2/dist/petite-vue.es.js";
+        <ul class="list-porto daftar--dicari" v-show="tampilkanAnak === 'cari'">
+          <li v-show="anakYangDicari.length === 0">Gak ketemu :(</li>
+          <li
+            v-for="anak in anakYangDicari"
+            class="anak"
+            :class="{sudah: anak.sudah}">
+            <a v-if="anak.sudah" :href="`${anak.link}`"> {{anak.nama}} </a>
+            <a v-else href="./belum.html">{{anak.nama}}</a>
+          </li>
+        </ul>
+      </section>
+    </main>
 
-    createApp({
-      // exposed to all expressions
-      tampilkanAnak: "semua",
-      semuaAnak: [
-        {
-          nama: "Abimanyu Suryo Sutanto",
-          link: "#",
-          sudah: false,
-        },
-        {
-          nama: "Abiyyu Sadid Anshori",
-          link: "#",
-          sudah: false,
-        },
-        {
-          nama: "Abraham Haholongan Bernadi",
-          link: "#",
-          sudah: false,
-        },
-        {
-          nama: "Adam Lesra Troy Lantu",
-          link: "/portfolio/adamm",
-          sudah: true,
-        },
-        {
-          nama: "Aira Anaya Hanif",
-          link: "#",
-          sudah: false,
-        },
-        {
-          nama: "Alfatah Radya Tirtana",
-          link: "/portfolio/alfatahradya",
-          sudah: true,
-        },
-        {
-          nama: "Allam Syahfril Ginar Azandra",
-          link: "/portfolio/chnp",
-          sudah: true,
-        },
-        {
-          nama: "Amanda Aprilia Citra",
-          link: "#",
-          sudah: false,
-        },
-        {
-          nama: "Andi Johan Saputra",
-          link: "https://Andijohan.github.io/web.andi",
-          sudah: true,
-        },
-        {
-          nama: "Anisa Rahmayani Ayuningrum",
-          link: "/portfolio/kecikk",
-          sudah: true,
-        },
-        {
-          nama: "Anna Calista Evangelin",
-          link: "/portfolio/el",
-          sudah: true,
-        },
-        {
-          nama: "Bagus Raziq Safaras",
-          link: "https://raziq99.github.io/web",
-          sudah: true,
-        },
-        {
-          nama: "Benjamin Dharma Guntara",
-          link: "https://0xbdg.github.io/",
-          sudah: true,
-        },
-        {
-          nama: "Daffa Al Fatih",
-          link: "/portfolio/FatihXPPLG",
-          sudah: true,
-        },
-        {
-          nama: "Devano Kefanya Reihand Alvaro",
-          link: "/portfolio/depaa",
-          sudah: true,
-        },
-        {
-          nama: "Efraim Wibowo Munthe",
-          link: "https://klrfl.netlify.app",
-          sudah: true,
-        },
-        {
-          nama: "Emmanuel Steve Michael Limbeng",
-          link: "#",
-          sudah: false,
-        },
-        {
-          nama: "Ezekiel Benedict Felice",
-          link: "#",
-          sudah: false,
-        },
-        {
-          nama: "Ezra Imang Lama Rebon",
-          link: "#",
-          sudah: false,
-        },
-        {
-          nama: "Hikaru Pradyananto Ramadan",
-          link: "#",
-          sudah: false,
-        },
-        {
-          nama: "Jose Antonio Tjua",
-          link: "#",
-          sudah: false,
-        },
-        {
-          nama: "Maprio Filindo",
-          link: "#",
-          sudah: false,
-        },
-        {
-          nama: "Mario Jons",
-          link: "#",
-          sudah: false,
-        },
-        {
-          nama: "Giga Felicia Ananta",
-          link: "/portfolio/GigaFeliciaAnanta",
-          sudah: true,
-        },
-        {
-          nama: "Mohammad Atha Fattarsyah Noor",
-          link: "/portfolio/Hamba",
-          sudah: true,
-        },
-        {
-          nama: "Muhamad Fadil Maulama",
-          link: "#",
-          sudah: false,
-        },
-        {
-          nama: "Muhamad Rava Basya",
-          link: "https://ravabasya06.github.io/Simple-Portfolio",
-          sudah: true,
-        },
-        {
-          nama: "Muhammad Rifqi Fallah Gaffar",
-          link: "#",
-          sudah: false,
-        },
-        {
-          nama: "Muhamad Rizal Fasha Ramadan",
-          link: "/portfolio/RizalXPPLG",
-          sudah: true,
-        },
-        {
-          nama: "Muhammad Brillian Tama Wandiko",
-          link: "/portfolio/BYNTM_07",
-          sudah: true,
-        },
-        {
-          nama: "Muhammad Rafi Al Zakwan",
-          link: "#",
-          sudah: false,
-        },
-        {
-          nama: "Muhammad Raihan Althaf",
-          link: "#",
-          sudah: false,
-        },
-        {
-          nama: "Raihan Januariza Sulistyo",
-          link: "/portfolio/Hanjpplg",
-          sudah: true,
-        },
-        {
-          nama: "Rowley Fisstrong Junior",
-          link: "#",
-          sudah: false,
-        },
-        {
-          nama: "Ryan Dimas Adrian",
-          link: "/portfolio/Ryan",
-          sudah: true,
-        },
-        {
-          nama: "Satria Trisula Witjaksana",
-          link: "#",
-          sudah: false,
-        },
-        {
-          nama: "Sachio Ramzie Zahran",
-          link: "#",
-          sudah: false,
-        },
-        {
-          nama: "Vianne Clarinta Putri",
-          link: "#",
-          sudah: false,
-        },
-      ],
+    <footer>
+      © <a href="https://github.com/ravabasya06" target="_blank">rav.</a> &
+      <a href="https://github.com/klrfl" target="_blank">Klrfl</a>, 2023. Lihat
+      <a href="https://github.com/klrfl/pplg-portfolio">
+        kode sumber website ini
+      </a>
+    </footer>
 
-      get anakSudah() {
-        return this.semuaAnak.filter((anak) => anak.sudah);
-      },
+    <script type="module">
+      import { createApp } from "https://unpkg.com/petite-vue@0.2.2/dist/petite-vue.es.js"
 
-      get anakBelom() {
-        return this.semuaAnak.filter((anak) => anak.sudah === false);
-      },
+      createApp({
+        // exposed to all expressions
+        tampilkanAnak: "semua",
+        semuaAnak: [
+          {
+            nama: "Abimanyu Suryo Sutanto",
+            link: "#",
+            sudah: false,
+          },
+          {
+            nama: "Abiyyu Sadid Anshori",
+            link: "#",
+            sudah: false,
+          },
+          {
+            nama: "Abraham Haholongan Bernadi",
+            link: "#",
+            sudah: false,
+          },
+          {
+            nama: "Adam Lesra Troy Lantu",
+            link: "/portfolio/adamm",
+            sudah: true,
+          },
+          {
+            nama: "Aira Anaya Hanif",
+            link: "#",
+            sudah: false,
+          },
+          {
+            nama: "Alfatah Radya Tirtana",
+            link: "/portfolio/alfatahradya",
+            sudah: true,
+          },
+          {
+            nama: "Allam Syahfril Ginar Azandra",
+            link: "/portfolio/chnp",
+            sudah: true,
+          },
+          {
+            nama: "Amanda Aprilia Citra",
+            link: "#",
+            sudah: false,
+          },
+          {
+            nama: "Andi Johan Saputra",
+            link: "https://Andijohan.github.io/web.andi",
+            sudah: true,
+          },
+          {
+            nama: "Anisa Rahmayani Ayuningrum",
+            link: "/portfolio/kecikk",
+            sudah: true,
+          },
+          {
+            nama: "Anna Calista Evangelin",
+            link: "/portfolio/el",
+            sudah: true,
+          },
+          {
+            nama: "Bagus Raziq Safaras",
+            link: "https://raziq99.github.io/web",
+            sudah: true,
+          },
+          {
+            nama: "Benjamin Dharma Guntara",
+            link: "https://0xbdg.github.io/",
+            sudah: true,
+          },
+          {
+            nama: "Daffa Al Fatih",
+            link: "/portfolio/FatihXPPLG",
+            sudah: true,
+          },
+          {
+            nama: "Devano Kefanya Reihand Alvaro",
+            link: "/portfolio/depaa",
+            sudah: true,
+          },
+          {
+            nama: "Efraim Wibowo Munthe",
+            link: "https://klrfl.netlify.app",
+            sudah: true,
+          },
+          {
+            nama: "Emmanuel Steve Michael Limbeng",
+            link: "#",
+            sudah: false,
+          },
+          {
+            nama: "Ezekiel Benedict Felice",
+            link: "#",
+            sudah: false,
+          },
+          {
+            nama: "Ezra Imang Lama Rebon",
+            link: "#",
+            sudah: false,
+          },
+          {
+            nama: "Hikaru Pradyananto Ramadan",
+            link: "#",
+            sudah: false,
+          },
+          {
+            nama: "Jose Antonio Tjua",
+            link: "#",
+            sudah: false,
+          },
+          {
+            nama: "Maprio Filindo",
+            link: "#",
+            sudah: false,
+          },
+          {
+            nama: "Mario Jons",
+            link: "#",
+            sudah: false,
+          },
+          {
+            nama: "Giga Felicia Ananta",
+            link: "/portfolio/GigaFeliciaAnanta",
+            sudah: true,
+          },
+          {
+            nama: "Mohammad Atha Fattarsyah Noor",
+            link: "/portfolio/Hamba",
+            sudah: true,
+          },
+          {
+            nama: "Muhamad Fadil Maulama",
+            link: "#",
+            sudah: false,
+          },
+          {
+            nama: "Muhamad Rava Basya",
+            link: "https://ravabasya06.github.io/Simple-Portofolio",
+            sudah: true,
+          },
+          {
+            nama: "Muhammad Rifqi Fallah Gaffar",
+            link: "#",
+            sudah: false,
+          },
+          {
+            nama: "Muhamad Rizal Fasha Ramadan",
+            link: "/portfolio/RizalXPPLG",
+            sudah: true,
+          },
+          {
+            nama: "Muhammad Brillian Tama Wandiko",
+            link: "/portfolio/BYNTM_07",
+            sudah: true,
+          },
+          {
+            nama: "Muhammad Rafi Al Zakwan",
+            link: "#",
+            sudah: false,
+          },
+          {
+            nama: "Muhammad Raihan Althaf",
+            link: "#",
+            sudah: false,
+          },
+          {
+            nama: "Raihan Januariza Sulistyo",
+            link: "/portfolio/Hanjpplg",
+            sudah: true,
+          },
+          {
+            nama: "Rowley Fisstrong Junior",
+            link: "#",
+            sudah: false,
+          },
+          {
+            nama: "Ryan Dimas Adrian",
+            link: "/portfolio/Ryan",
+            sudah: true,
+          },
+          {
+            nama: "Satria Trisula Witjaksana",
+            link: "#",
+            sudah: false,
+          },
+          {
+            nama: "Sachio Ramzie Zahran",
+            link: "#",
+            sudah: false,
+          },
+          {
+            nama: "Vianne Clarinta Putri",
+            link: "#",
+            sudah: false,
+          },
+        ],
 
-      cariAnak: "",
+        get anakSudah() {
+          return this.semuaAnak.filter((anak) => anak.sudah)
+        },
 
-      get anakYangDicari() {
-        if (this.cariAnak !== "") this.tampilkanAnak = "cari";
+        get anakBelom() {
+          return this.semuaAnak.filter((anak) => anak.sudah === false)
+        },
 
-        const filtered = this.semuaAnak.filter((anak) =>
-          anak.nama.toLowerCase().includes(this.cariAnak.toLowerCase())
-        );
-        return filtered;
-      },
-    }).mount();
-  </script>
-</body>
+        cariAnak: "",
 
+        get anakYangDicari() {
+          if (this.cariAnak !== "") this.tampilkanAnak = "cari"
+
+          const filtered = this.semuaAnak.filter((anak) =>
+            anak.nama.toLowerCase().includes(this.cariAnak.toLowerCase()),
+          )
+          return filtered
+        },
+      }).mount()
+    </script>
+  </body>
 </html>
