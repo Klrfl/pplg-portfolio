@@ -66,7 +66,9 @@
             v-for="anak in semuaAnak"
             class="anak"
             :class="{sudah: anak.sudah}">
-            <a v-if="anak.sudah" :href="`${anak.link}`"> {{anak.nama}} </a>
+            <a v-if="anak.sudah" target="_blank" :href="`${anak.link}`">
+              {{anak.nama}}
+            </a>
             <a v-else href="./belum.html">{{anak.nama}}</a>
           </li>
         </ul>
@@ -76,7 +78,7 @@
             v-for="anak in anakSudah"
             class="anak"
             :class="{sudah: anak.sudah}">
-            <a :href="`${anak.link}`"> {{anak.nama}} </a>
+            <a target="_blank" :href="`${anak.link}`"> {{anak.nama}} </a>
           </li>
         </ul>
 
@@ -85,7 +87,7 @@
             v-for="anak in anakBelom"
             class="anak"
             :class="{sudah: anak.sudah}">
-            <a :href="`${anak.link}`"> {{anak.nama}} </a>
+            <a target="_blank" :href="`${anak.link}`"> {{anak.nama}} </a>
           </li>
         </ul>
 
@@ -95,7 +97,9 @@
             v-for="anak in anakYangDicari"
             class="anak"
             :class="{sudah: anak.sudah}">
-            <a v-if="anak.sudah" :href="`${anak.link}`"> {{anak.nama}} </a>
+            <a v-if="anak.sudah" target="_blank" :href="`${anak.link}`">
+              {{anak.nama}}
+            </a>
             <a v-else href="./belum.html">{{anak.nama}}</a>
           </li>
         </ul>
