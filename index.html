@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
@@ -303,8 +303,8 @@
           },
           {
             nama: "Sachio Ramzie Zahran",
-            link: "#",
-            sudah: false,
+            link: "https://adreon19.github.io/web-portofolio/",
+            sudah: true,
           },
           {
             nama: "Vianne Clarinta Putri",
@@ -327,7 +327,7 @@
           if (this.cariAnak !== "") this.tampilkanAnak = "cari"
 
           const filtered = this.semuaAnak.filter((anak) =>
-            anak.nama.toLowerCase().includes(this.cariAnak.toLowerCase()),
+            anak.nama.toLowerCase().includes(this.cariAnak.toLowerCase())
           )
           return filtered
         },
